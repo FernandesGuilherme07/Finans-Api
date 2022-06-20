@@ -1,24 +1,25 @@
 {
-  "name": "template-express-ts-mongoose",
+  "name": "simple-crud-mongoose",
   "version": "1.0.0",
-  "description": "",
+  "description": "package for creating simple crud in nodejs and mongoDB and automatic password encryption.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts"
   },
-  "keywords": [],
+  "repository":{
+    "type": "git",
+    "url": "https://github.com/FernandesGuilherme07/simple-crud-mongoose.git"
+
+  },
+  "keywords": ["crud", "mongoDB", "mongoose", "simple-crud", "express"],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "config": "^3.3.7",
-    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-validator": "^6.14.0",
-    "mongoose": "^6.3.3",
-    "morgan": "^1.10.0",
-    "winston": "^3.7.2"
+    "mongoose": "^6.3.3"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",

@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 // Bcrypt
 import { createPasswordHash } from "./bcrypt";
 // Logger
-import Logger from "../config/logger";
 import { Mongoose } from "mongoose";
 
 export const CrudModule = (
@@ -22,7 +21,7 @@ export const CrudModule = (
       const createData = await model.create(data);
       return res.status(201).json(createData);
     } catch (e: any) {
-      Logger.error(`Error: ${e.message}`);
+      console.log(`Error: ${e.message}`);
       return res.status(500).json({ error: "internal error." });
     }
   };
@@ -32,7 +31,7 @@ export const CrudModule = (
       const getData: Array<any> = await model.find();
       return res.status(200).json(getData);
     } catch (e: any) {
-      Logger.error(`Error: ${e.message}`);
+      console.log(`Error: ${e.message}`);
       return res.status(404).json({ error: "internal error." });
     }
   };
@@ -43,7 +42,7 @@ export const CrudModule = (
       const getData: Object | null = await model.findById({ _id: Id });
       return res.status(200).json(getData);
     } catch (e: any) {
-      Logger.error(`Error: ${e.message}`);
+      console.log(`Error: ${e.message}`);
       return res.status(404).json({ error: "internal error." });
     }
   };
@@ -56,7 +55,7 @@ export const CrudModule = (
 
       return res.status(204).json({ msg: "successfully removed!" });
     } catch (e: any) {
-      Logger.error(`Error: ${e.message}`);
+      console.log(`Error: ${e.message}`);
       return res.status(404).json({ error: "error internal." });
     }
   };
@@ -76,8 +75,8 @@ export const CrudModule = (
       await model.updateOne({ _id: Id }, data);
       return res.status(202).json(data);
     } catch (e: any) {
-      Logger.error(`Error: ${e.message}`);
-      return res.status(404).json();
+      console.log(`Error: ${e.message}`);
+      return res.status(404).json({ error: "error internal." });
     }
   };
 
